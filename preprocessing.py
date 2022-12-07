@@ -20,4 +20,23 @@ df = df.drop(["fr_gb", "gb_fr", "fr_cwe", "cwe_fr", "fr_ch", "ch_fr",
 
 df = df.sort_values(by="timestamp")
 
-print(df)
+# Teste si toutes les valeurs sont présentes
+Liste = sorted(df["timestamp"].tolist())
+i = 0
+booleen = False
+while i < len(Liste)-1 and not booleen:
+    if Liste[i] == Liste[i+1]:
+        print(Liste[i])
+        booleen = True
+    i += 1
+print("Il y a des doublons dans les dates : "+str(booleen))
+# On calcule le nombre de dates attendues,
+# comme on sait qu'il n'y a pas de doublons,
+# si la taille de la liste est le nombre de valeurs attendues,
+# alors il ne manque aucune données
+j_par_mois = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+nbr_29_fevrier = 4  # nombre d'années bissextiles entre 2005 et 2022
+nbr_valeurs_attendu = (sum(j_par_mois)*(2022-2005)+nbr_29_fevrier)*24
+
+print(
+    f"nombre de dates attendues : {nbr_valeurs_attendu}\nnombre de valeurs réel : {len(Liste)}")
