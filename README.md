@@ -101,4 +101,4 @@ Les loss décroissent très vite, on pourrait choisir de s'arréter après 10 é
 
 ## Conclusion
 
-Ce modèle peret bien de prédire les exportations d'énergie françaises avec une grande précision.
+Ce modèle permet bien de prédire les exportations d'énergie françaises avec une grande précision.
