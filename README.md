@@ -39,7 +39,7 @@ Pour formater les données, je pensais d'abord, en utilisant chaque valeur heure
 
 Le modèle est composé d'une série de couches de CNN à taille de noyau variable, j'adapte la profondeur pour avoir un champ récepteur de 7 avec un stride de 1.
 
-![CNNs](https://github.com/alexiobec/deep_learning_mini_projet/blob/master/img/CNN.png?raw=true)
+![CNNs](https://github.com/alexiobec/deep_learning_mini_projet/blob/main/img/CNN.png?raw=true)
 
 Comme je l'ai schématisé sur cette image, pour un noyau de taille 2 on a une profondeur de 6, pour 3 de 3 et pour 4 de 2, je n'ai pas représenté le noyau de taille 7 qui ne nécessite qu'une couche de CNN.
 
@@ -52,7 +52,7 @@ Après les couches de CNN, se trouvent des couches de RNN à taille variable, qu
 Les hyper-paramètres que j'ai étudié sont les tailles des couches de CNN et de RNN ainsi que le learning rate et le nombre d'époques.
 
 Dans un premier temps, sans avoir modifié aucun paramètre, les résultats sont assez bons, cela est du au grand nombre de données pour cette tâche. 
-![essai1](https://github.com/alexiobec/deep_learning_mini_projet/blob/master/img/essai1.png?raw=true)
+![essai1](https://github.com/alexiobec/deep_learning_mini_projet/blob/main/img/essai1.png?raw=true)
 
 On peut voir que les loss convergent vers 0.001 en quelques dizaines d'époques.
 
@@ -61,11 +61,11 @@ On peut voir que les loss convergent vers 0.001 en quelques dizaines d'époques.
 
 Pour le nombre de couches des CNN, j'avais le choix entre les 4 taille de noyau/nombre de couches présentés au dessus.
 
-![CNN_validation](https://github.com/alexiobec/deep_learning_mini_projet/blob/master/img/CNN_validation.png?raw=true)
+![CNN_validation](https://github.com/alexiobec/deep_learning_mini_projet/blob/main/img/CNN_validation.png?raw=true)
 
 On peut voir que les performances des noyau de taille 2 et 7 sont moins bonnes sur le corpus de validation que celles des 3 et 4.
 
-![cnntrain34](https://github.com/alexiobec/deep_learning_mini_projet/blob/master/img/cnntrain34.png?raw=true)
+![cnntrain34](https://github.com/alexiobec/deep_learning_mini_projet/blob/main/img/cnntrain34.png?raw=true)
 
 En regardant ces courbes ont peut voir que sur l'ensemble train+validation l'architecture avec 3 couches se comporte mieux que celle à 2 couches (avec un etaille de noyau de 4).
 
@@ -73,7 +73,7 @@ En regardant ces courbes ont peut voir que sur l'ensemble train+validation l'arc
 
 Les RNN prenant en entrée des vecteurs de la même taille que la sortie, il est facile de les empiler, cela est fait par la variable num_rnn du modèle.
 
-![compa_rnn](https://github.com/alexiobec/deep_learning_mini_projet/blob/master/img/compa_rnn.png?raw=true)
+![compa_rnn](https://github.com/alexiobec/deep_learning_mini_projet/blob/main/img/compa_rnn.png?raw=true)
 
 Après avoir regardé les résultats pour un nombre de couches variant de 1 à 9, les deux meilleurs présentés ici sont pour 2 et 8 couches, on préferera 2 couche pour ne pas avoir un trop grand nombre de paramètre.
 
@@ -81,7 +81,7 @@ Après avoir regardé les résultats pour un nombre de couches variant de 1 à 9
 
 Après avoir fait varier le learning rate sur différents ordre de grandeurs (de 10^-5 à 10), un learning rate adapté semble être entre 0.01 et 0.001, pour que les loss soient stables et pas trop lentes.
 
-![compa_lr](https://github.com/alexiobec/deep_learning_mini_projet/blob/master/img/compa_lr.png?raw=true)
+![compa_lr](https://github.com/alexiobec/deep_learning_mini_projet/blob/main/img/compa_lr.png?raw=true)
 
 En vue de ce graphique, on choisit un learning rate de 0.005.
 
@@ -89,7 +89,7 @@ En vue de ce graphique, on choisit un learning rate de 0.005.
 
 Avec les hyper-paramètres précédents, on utilise le jeu de test pour déterminer le bon nombre d'époques.
 
-![epoch](https://github.com/alexiobec/deep_learning_mini_projet/blob/master/img/epoch.png?raw=true)
+![epoch](https://github.com/alexiobec/deep_learning_mini_projet/blob/main/img/epoch.png?raw=true)
 
 Les loss décroissent très vite, on pourrait choisir de s'arréter après 10 époques, cependant, la décroissance continue jusqu'à 20 époques, après elle réduit donc on peut choisir 20 époques.
 
